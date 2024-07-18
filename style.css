@@ -62,6 +62,10 @@
     width: 65px;
 }
 
+.logo {
+    width: 215px;
+    float: right;
+}
 .font-xl {
     font-size: 25px;
     font-weight: 500;
@@ -76,14 +80,33 @@
 }
 
 .main-header {
+    
     background: #ffff66;
     padding-top: 10px;
     padding-bottom: 10px;
 }
 
-header .navbar-nav {
-    display: unset !important;
+header  a {
+    color: #17182c;
+    /* border-right: 1px #000 solid; */
+    list-style: none;
+    text-decoration: none;
+    height: 16px;
+    padding: 4px;
+   
 }
+
+.nav{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+
+
+
+
 
 .welcome-text {
     background: #cc0001;
@@ -113,9 +136,6 @@ header .navbar-nav {
     margin-right: -12.5px;
     margin-left: -12.5px;
 }
-
-
-
 
 
 
@@ -151,6 +171,7 @@ div.row {
     margin-bottom: 20px;
     font-weight: 600;
     letter-spacing: 1px;
+   
 }
 
 .card-height {
