@@ -84,3 +84,60 @@
 header .navbar-nav {
     display: unset !important;
 }
+
+.welcome-text {
+    background: #cc0001;
+    padding: 0px 10px;
+    text-align: center;
+    color: #ffffff;
+    font-size: 23px;
+    margin: auto;
+    font-weight: 500;
+    display: inline-block;
+    width: 380px;
+    border-radius: 10px;
+}
+
+.welcome-text-main {
+    margin-top: -20px;
+    margin-bottom: 15px;
+}
+
+
+.row {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: -12.5px;
+    margin-left: -12.5px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.login-form {
+    /* background: #3a6cb3; */
+    background: #005C97;
+    background: -webkit-linear-gradient(to right, #363795, #005C97);
+    background: linear-gradient(to right, #363795, #005C97);
+    min-height: 300px;
+    padding: 20px 20px;
+    margin-top: 50px;
+    box-shadow: 0px 0px 15px 11px #e2e2e2;
+    background-position: center;
+    background-size: cover;
+}
