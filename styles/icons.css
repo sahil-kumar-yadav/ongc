@@ -1,0 +1,28 @@
+/* Icons */
+.icons-list {
+    border-left: 1px solid #dee2e6;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.icons-list>div {
+    background: #fff;
+    border-top: 1px solid #dee2e6;
+    border-right: 1px solid #dee2e6;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    padding: 15px;
+    font-family: "roboto", sans-serif;
+    font-size: 0.875rem;
+}
+
+.icons-list>div i {
+    display: inline-block;
+    font-size: 20px;
+    width: 40px;
+    text-align: left;
+    color: #2196f3;
+}

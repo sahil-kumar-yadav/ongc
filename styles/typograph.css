@@ -1,0 +1,252 @@
+/* Typography */
+:root,
+body {
+    font-size: 1rem;
+    font-family: "roboto", sans-serif;
+    color: #212529;
+}
+
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "roboto", sans-serif;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+}
+
+p,
+a:not([href]):not([tabindex]) {
+    color: #212529;
+    font-size: 0.875rem;
+}
+
+.h1,
+h1 {
+    font-size: 2.3125rem;
+}
+
+.h2,
+h2 {
+    font-size: 2rem;
+}
+
+.h3,
+h3 {
+    font-size: 1.6875rem;
+}
+
+.h4,
+h4 {
+    font-size: 1.25rem;
+}
+
+.h5,
+h5 {
+    font-size: 1.0625rem;
+}
+
+.h6,
+h6 {
+    font-size: 1rem;
+}
+
+p {
+    font-size: 0.875rem;
+}
+
+.display-1 {
+    font-size: 3.75rem;
+}
+
+@media (max-width: 991px) {
+    .display-1 {
+        font-size: 3rem;
+    }
+}
+
+.display-2 {
+    font-size: 3.125rem;
+}
+
+@media (max-width: 991px) {
+    .display-2 {
+        font-size: 2.5rem;
+    }
+}
+
+.display-3 {
+    font-size: 2.5rem;
+}
+
+@media (max-width: 991px) {
+    .display-3 {
+        font-size: 2rem;
+    }
+}
+
+.display-4 {
+    font-size: 1.875rem;
+}
+
+@media (max-width: 991px) {
+    .display-4 {
+        font-size: 1.5rem;
+    }
+}
+
+.display-5 {
+    font-size: 1.25rem;
+}
+
+@media (max-width: 991px) {
+    .display-5 {
+        font-size: 1rem;
+    }
+}
+
+.blockquote {
+    padding: 1.25rem;
+    border: 1px solid #dee2e6;
+}
+
+address p {
+    margin-bottom: 0;
+}
+
+.blockquote-primary {
+    border-color: #2196f3;
+}
+
+.blockquote-primary .blockquote-footer {
+    color: #2196f3;
+}
+
+.blockquote-secondary {
+    border-color: #dde4eb;
+}
+
+.blockquote-secondary .blockquote-footer {
+    color: #dde4eb;
+}
+
+.blockquote-success {
+    border-color: #19d895;
+}
+
+.blockquote-success .blockquote-footer {
+    color: #19d895;
+}
+
+.blockquote-info {
+    border-color: #8862e0;
+}
+
+.blockquote-info .blockquote-footer {
+    color: #8862e0;
+}
+
+.blockquote-warning {
+    border-color: #ffaf00;
+}
+
+.blockquote-warning .blockquote-footer {
+    color: #ffaf00;
+}
+
+.blockquote-danger {
+    border-color: #ff6258;
+}
+
+.blockquote-danger .blockquote-footer {
+    color: #ff6258;
+}
+
+.blockquote-light {
+    border-color: #fbfbfb;
+}
+
+.blockquote-light .blockquote-footer {
+    color: #fbfbfb;
+}
+
+.blockquote-dark {
+    border-color: #252C46;
+}
+
+.blockquote-dark .blockquote-footer {
+    color: #252C46;
+}
+
+.page-title {
+    color: #212529;
+    margin: 0.38rem 0 0.75rem;
+}
+
+.card-title {
+    font-family: "roboto", sans-serif;
+    font-weight: 500;
+    color: #212229;
+    margin-bottom: 15px;
+    font-size: 14px;
+    text-transform: capitalize;
+}
+
+.rtl .card-title {
+    text-align: right;
+}
+
+.card-subtitle {
+    font-weight: 300;
+    font-family: "roboto", sans-serif;
+    margin-top: 0.625rem;
+    margin-bottom: 0.625rem;
+}
+
+.card-description {
+    margin-bottom: 0.9375rem;
+    font-family: "roboto", sans-serif;
+}
+
+.rtl .card-description {
+    text-align: right;
+}
+
+.font-weight-normal {
+    font-weight: 400;
+}
+
+.font-weight-medium {
+    font-weight: 500;
+}
+
+.font-weight-semibold {
+    font-weight: 600;
+}
+
+small,
+.text-small {
+    font-size: 12px;
+}
+
+.icon-lg {
+    font-size: 2.5rem;
+}
+
+.icon-md {
+    font-size: 1.875rem;
+}
+
+.icon-sm {
+    font-size: 1.3rem;
+}
