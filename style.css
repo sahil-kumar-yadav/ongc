@@ -4,40 +4,6 @@
 
 }
 
-.content-wrapper {
-    background: #fff;
-    padding: 0;
-    width: 100%;
-    -webkit-box-flex: 1;
-    -ms-flex-positive: 1;
-    flex-grow: 1;
-}
-
-
-.top-split {
-    padding: 5px 15px;
-    background: #004d91;
-    display: flex;
-}
-
-.top-items {
-    justify-content: flex-end;
-}
-
-.width-100-per {
-    width: 100%;
-}
-
-.display-flex {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-}
-
-.middel-header-part {
-    background: #002f5b;
-    padding: 15px 15px;
-}
 
 .row.header {
     display: flex;
