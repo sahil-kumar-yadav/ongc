@@ -10,6 +10,11 @@
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
     <script src="data.js"></script>
+    <script type="module" src="./script.js"></script>
+    <script type="module" src="./auth/firebase-init.js"></script>
+    <script type="module" src="./auth/manageDb.js"></script>
+    <script type="module" src="./auth/regiseration.js"></script>
+
 </head>
 
 <body>
@@ -202,23 +207,24 @@
                                                     <div class="face face-front">
                                                         <div class="content">
                                                             <h2>Sign in</h2>
-                                                            <form action="http://127.0.0.1:5500/afterregistration.html" 
-                                                                >
+                                                            <form onsubmit="event.preventDefault()">
                                                                 <div class="field-wrapper">
-                                                                    <input type="text" name="username" placeholder="">
-                                                                    <label>Username</label>
+                                                                    <input required type="text" name="email"
+                                                                        placeholder="">
+                                                                    <label>Email</label>
                                                                 </div>
                                                                 <div class="field-wrapper">
-                                                                    <input type="password" name="password"
+                                                                    <input required minlength="8" type="password"
+                                                                        name="password" autocomplete="off"
                                                                         placeholder="">
                                                                     <label>Password</label>
                                                                 </div>
                                                                 <div class="field-wrapper">
-                                                                    <input type="submit" onclick="showThankYou()">
+                                                                    <input type="submit" class="show-ThankYou">
                                                                 </div>
-                                                                <span class="psw" onclick="showForgotPassword()">Forgot
+                                                                <span class="psw" id="show-forgetpass">Forgot
                                                                     Password?</span>
-                                                                <span class="signup" onclick="showSignup()">Not a user?
+                                                                <span class="signup" id="show-signup">Not a user?
                                                                     Sign
                                                                     up</span>
                                                             </form>
@@ -232,11 +238,12 @@
                                                                 password</small>
                                                             <form onsubmit="event.preventDefault()">
                                                                 <div class="field-wrapper">
-                                                                    <input type="text" name="email" placeholder="Email">
+                                                                    <input required type="text" name="email"
+                                                                        placeholder="Email">
                                                                     <label>Email</label>
                                                                 </div>
                                                                 <div class="field-wrapper">
-                                                                    <input type="submit" onclick="showThankYou()">
+                                                                    <input type="submit" class="show-ThankYou">
                                                                 </div>
                                                             </form>
                                                         </div>
@@ -246,23 +253,24 @@
                                                             <h2>Sign up</h2>
                                                             <form onsubmit="event.preventDefault()">
                                                                 <div class="field-wrapper">
-                                                                    <input type="text" name="email" placeholder="">
+                                                                    <input required type="text" name="email"
+                                                                        placeholder="">
                                                                     <label>Email</label>
                                                                 </div>
                                                                 <div class="field-wrapper">
-                                                                    <input type="password" name="password"
-                                                                        placeholder="">
+                                                                    <input required type="password" name="password"
+                                                                        minlength="8" placeholder="">
                                                                     <label>Password</label>
                                                                 </div>
                                                                 <div class="field-wrapper">
-                                                                    <input type="password" name="password2"
-                                                                        placeholder="" autocomplete="new-password">
+                                                                    <input required type="password" name="password2"
+                                                                        autocomplete="off" placeholder="" minlength="8">
                                                                     <label>Re-enter Password</label>
                                                                 </div>
                                                                 <div class="field-wrapper">
-                                                                    <input type="submit" onclick="showThankYou()">
+                                                                    <input type="submit" class="show-ThankYou">
                                                                 </div>
-                                                                <span class="singin" onclick="showLogin()">Already a
+                                                                <span class="singin" id="show-signin">Already a
                                                                     user?
                                                                     Sign
                                                                     in</span>
@@ -428,23 +436,7 @@
 
                 });
             </script>
-            <script>
-                const prism = document.querySelector(".rec-prism");
 
-                function showSignup() {
-                    prism.style.transform = "translateZ(-100px) rotateY( -90deg)";
-                }
-                function showLogin() {
-                    prism.style.transform = "translateZ(-100px)";
-                }
-                function showForgotPassword() {
-                    prism.style.transform = "translateZ(-100px) rotateY( -180deg)";
-                }
-
-                function showThankYou() {
-                    prism.style.transform = "translateZ(-100px) rotateX( 90deg)";
-                }
-            </script>
 </body>
 
 
