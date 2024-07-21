@@ -67,10 +67,6 @@ async function deleteUser(userName) {
     
 }
 
-// deleteUser("dsds")
-
-// console.log("managedb")
-
 
 export { createUser, updateUser, findUser,deleteUser };
 

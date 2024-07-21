@@ -1,4 +1,4 @@
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "./firebase-init.js"
+import { getAuth, onAuthStateChanged, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut} from "./firebase-init.js"
 
 const auth = getAuth();
 
@@ -36,6 +36,32 @@ document.addEventListener('DOMContentLoaded', function () {
     showSignUpPage.addEventListener('click', showSignup);
     showForgotPass.addEventListener('click', showForgotPassword);
 
+
+    onAuthStateChanged(auth, (user) => {
+        if (user) {
+            // User is signed in, see docs for a list of available properties
+            // https://firebase.google.com/docs/reference/js/auth.user
+            const uid = user.uid;
+            console.log("state changed  uid",uid)
+            // ...
+        } else {
+            // User is signed out
+            console.log("user is signed out")
+        }
+    });
+
+    const logineduser = auth.currentUser;
+
+    if (logineduser !== null) {
+        logineduser.providerData.forEach((profile) => {
+            console.log("Sign-in provider: " + profile.providerId);
+            console.log("  Provider-specific UID: " + profile.uid);
+            console.log("  Name: " + profile.displayName);
+            console.log("  Email: " + profile.email);
+            console.log("  Photo URL: " + profile.photoURL);
+        });
+    }
+
     // Event listener for Sign In form submission
     signInForm.addEventListener('submit', function (event) {
         event.preventDefault(); // Prevent default form submission
@@ -50,6 +76,19 @@ document.addEventListener('DOMContentLoaded', function () {
         // Replace this with your actual logic
 
         signInWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+                // Signed in 
+                console.log('Email:', email);
+                console.log('Password:', password);
+                const user = userCredential.user;
+                console.log("User loged In Successfully ", user);
+                showThankYou();
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                console.log("Error while login ", errorCode, errorMessage);
+            });
 
         signInForm.reset(); // Reset the form after submission
     });
@@ -66,6 +105,17 @@ document.addEventListener('DOMContentLoaded', function () {
         // Example of submitting data to a backend or redirecting
         // Replace this with your actual logic
         console.log('Email:', email);
+        sendPasswordResetEmail(auth, email)
+            .then(() => {
+                // Password reset email sent!
+                console.log("password reset mail send");
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                console.log(" Error in sending password reset mail", errorCode, errorMessage);
+
+            });
         forgotPasswordForm.reset(); // Reset the form after submission
     });
 
@@ -83,40 +133,23 @@ document.addEventListener('DOMContentLoaded', function () {
         // console.log('Email:', email);
         // console.log('Password:', password);
         // console.log('Re-entered Password:', password2);
-        createUserWithEmailAndPassword(auth, email, password);
+        createUserWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+                // Signed up 
+                const user = userCredential.user;
+                console.log("user created successful ", user)
+                showThankYou();
+                // ...
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                console.log("Error ", errorCode, errorMessage)
+                // ..
+            });
         signUpForm.reset(); // Reset the form after submission
     });
 
-
-    createUserWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
-            // Signed up 
-            const user = userCredential.user;
-            console.log("user created successful ", user)
-            showThankYou();
-            // ...
-        })
-        .catch((error) => {
-            const errorCode = error.code;
-            const errorMessage = error.message;
-            console.log("Error ", errorCode, errorMessage)
-            // ..
-        });
-
-    signInWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
-            // Signed in 
-            console.log('Email:', email);
-            console.log('Password:', password);
-            const user = userCredential.user;
-            console.log("User loged In Successfully ", user);
-            showThankYou();
-        })
-        .catch((error) => {
-            const errorCode = error.code;
-            const errorMessage = error.message;
-            console.log("Error while login ", errorCode, errorMessage);
-        });
 
     signOut(auth).then(() => {
         // Sign-out successful.
