@@ -25,11 +25,13 @@
 
 
 .gov-logo img {
+    margin-left: 30px;
     width: 65px;
 }
 
 .logo {
     width: 215px;
+    margin-right: 30px;
     float: right;
 }
 
@@ -191,7 +193,7 @@ div.row {
     margin: 20px auto;
     perspective: 600px;
     text-align: left;
-    
+
 }
 
 .rec-prism {
@@ -353,10 +355,6 @@ div.row {
     transform: rotateX(-90deg) translateZ(calc(var(--prism-height) - (var(--prism-depth) / 2)));
 }
 
-.nav {
-    margin: var(--spacing) 0;
-    padding: 0;
-}
 
 .nav li {
     display: inline-block;
@@ -406,3 +404,94 @@ small {
         transform: translate(-50%, -50%) rotate(-45deg) scale(1);
     }
 }
+
+.footer {
+    padding: 20px 0;
+}
+
+.table {
+    color: #e0e0e0;
+}
+
+.table th,
+.table td {
+    border-color: #444;
+}
+
+.bg-dark-blue {
+    background-color: #002f5b !important;
+}
+
+
+
+/* new  */
+
+
+
+
+
+
+/* Footer styles */
+.footer {
+    background-color: #222;
+    /* Dark footer background */
+    color: #f5f5f5;
+    /* Light text color */
+}
+
+.footer h4 {
+    color: #ffcc00;
+    /* Yellow section headers */
+    margin-bottom: 10px;
+    /* Space below headers */
+}
+
+.footer a {
+    color: #ffcc00;
+    /* Yellow links */
+    text-decoration: none;
+    /* Remove underline */
+}
+
+.footer a:hover {
+    text-decoration: underline;
+    /* Underline on hover */
+}
+
+
+/* Visitor counter */
+.visitor-container {
+    /* background-color: #444; */
+    /* Dark background */
+    padding: 10px;
+    /* Padding for spacing */
+    border-radius: 5px;
+    /* Rounded corners */
+}
+
+.search-form-container {
+    /* background-color: #444; */
+    /* Dark background */
+    padding: 10px;
+    /* Padding for spacing */
+    border-radius: 5px;
+    /* Rounded corners */
+}
+
+/* Social icons */
+.social-icon {
+   display: flex;
+   align-items: center;
+   justify-content: flex-end;
+}
+.social-icon img {
+    width: 40px;
+}
+
+.social-icon a:hover img {
+    filter: brightness(0.5) invert(1);
+    /* Darker on hover */
+}
+
+
+
