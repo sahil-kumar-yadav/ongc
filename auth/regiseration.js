@@ -42,11 +42,11 @@ document.addEventListener('DOMContentLoaded', function () {
             // User is signed in, see docs for a list of available properties
             // https://firebase.google.com/docs/reference/js/auth.user
             const uid = user.uid;
-            console.log("state changed  uid",uid)
+            // console.log("state changed  uid",uid)
             // ...
         } else {
             // User is signed out
-            console.log("user is signed out")
+            // console.log("user is signed out")
         }
     });
 
@@ -54,11 +54,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
     if (logineduser !== null) {
         logineduser.providerData.forEach((profile) => {
-            console.log("Sign-in provider: " + profile.providerId);
-            console.log("  Provider-specific UID: " + profile.uid);
-            console.log("  Name: " + profile.displayName);
-            console.log("  Email: " + profile.email);
-            console.log("  Photo URL: " + profile.photoURL);
+            // console.log("Sign-in provider: " + profile.providerId);
+            // console.log("  Provider-specific UID: " + profile.uid);
+            // console.log("  Name: " + profile.displayName);
+            // console.log("  Email: " + profile.email);
+            // console.log("  Photo URL: " + profile.photoURL);
         });
     }
 
@@ -78,16 +78,16 @@ document.addEventListener('DOMContentLoaded', function () {
         signInWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 // Signed in 
-                console.log('Email:', email);
-                console.log('Password:', password);
-                const user = userCredential.user;
-                console.log("User loged In Successfully ", user);
+                // console.log('Email:', email);
+                // console.log('Password:', password);
+                // const user = userCredential.user;
+                // console.log("User loged In Successfully ", user);
                 showThankYou();
             })
             .catch((error) => {
                 const errorCode = error.code;
                 const errorMessage = error.message;
-                console.log("Error while login ", errorCode, errorMessage);
+                // console.log("Error while login ", errorCode, errorMessage);
             });
 
         signInForm.reset(); // Reset the form after submission
@@ -156,6 +156,10 @@ document.addEventListener('DOMContentLoaded', function () {
     }).catch((error) => {
         // An error happened.
     });
+
+
 });
+
+
 
 

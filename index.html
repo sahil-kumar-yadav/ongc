@@ -307,7 +307,7 @@
                         <!-- Search box and dropdown filter -->
                         <div style="margin-bottom: 10px;">
                             <input type="text" id="searchInput" placeholder="Search for names.." title="Type in a name">
-                            <select id="filterOffice">
+                            <select id="filterEvents">
                                 <option value="">Filter by Events</option>
                                 <option value="Event 2">Event 1</option>
                                 <option value="Event 2">Event 2</option>
@@ -331,9 +331,10 @@
                                     <th>No. of seats available</th>
                                 </tr>
                             </thead>
+                            
                             <tbody>
-
                             </tbody>
+
                             <tfoot>
                                 <tr>
                                     <th>Sr.No.</th>
@@ -406,68 +407,6 @@
 <script type="text/javascript"
     src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
-
-<script>
-    const table = document.querySelector("tbody");
-    showTable();
-
-    function fetchTableData() {
-        const type = "upcomingEvents"
-        const data = localData[type];
-
-        table.innerHTML = ''; // Clear existing data
-        data.forEach((row, index) => {
-            const newRow = table.insertRow();
-            newRow.innerHTML = `
-                                        <td>${index + 1}</td>
-                                        <td>${row.program_topic}</td>
-                                        <td>${row.course_code}</td>
-                                        <td>${row.duration}</td>
-                                        <td>${row.venue}</td>
-                                        <td>${row.fees}</td>
-                                        <td>${row.seats_available}</td>
-                                    `;
-        });
-
-    }
-
-    function showTable() {
-
-        // Show the selected table
-        const selectedTable = document.getElementById("fouthcommingEvents");
-        selectedTable.style.display = 'table';
-        // Fetch and populate the selected table
-        fetchTableData(1);
-    }
-
-    // Search box filtering
-    document.getElementById('searchInput').addEventListener('keyup', function () {
-        let input = document.getElementById('searchInput');
-        let filter = input.value.toUpperCase();
-        console.log(filter)
-        let tr = table.getElementsByTagName('tr');
-        let td = tr[0].getElementsByTagName('td')[0];
-        console.log("txt ", td.textContent)
-        let txtValue = td.textContent || td.innerText;
-        tr[0].style.display = txtValue.toUpperCase().indexOf(filter) > -1 ? "" : "none";
-
-    });
-
-    // Dropdown filter by office
-    document.getElementById('filterOffice').addEventListener('change', function () {
-        let select = document.getElementById('filterOffice');
-        let filter = select.value.toUpperCase();
-        console.log(filter)
-        const table = document.querySelector("tbody");
-        let tr = table.getElementsByTagName('tr');
-        let td = tr[0].getElementsByTagName('td')[2];
-        if (td) {
-            let txtValue = td.textContent || td.innerText;
-            tr[0].style.display = filter === "" || txtValue.toUpperCase() === filter ? "" : "none";
-        }
-
-    });
-</script>
 
 
 

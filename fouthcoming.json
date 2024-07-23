@@ -1,0 +1,22 @@
+{
+    "Forthcoming Events": {
+        "course1": {
+            "SrNo": 1,
+            "ProgramTopicScheduleURL": "URL1",
+            "CourseCode": "CODE1",
+            "Duration": "Duration1",
+            "Venue": "Venue1",
+            "FeesPerParticipant": 1000,
+            "SeatsAvailable": 20
+        },
+        "course2": {
+            "SrNo": 2,
+            "ProgramTopicScheduleURL": "URL2",
+            "CourseCode": "CODE2",
+            "Duration": "Duration2",
+            "Venue": "Venue2",
+            "FeesPerParticipant": 1500,
+            "SeatsAvailable": 15
+        }
+    }
+}

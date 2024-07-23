@@ -1,58 +1,59 @@
 
+// Get references to each button by their IDs
+var upcomingEventsBtn = document.getElementById('upcomingEventsBtn');
+var enrolledEventsBtn = document.getElementById('enrolledEventsBtn');
+var completedEventsBtn = document.getElementById('completedEventsBtn');
+var courseAssessmentBtn = document.getElementById('courseAssessmentBtn');
+var profileBtn = document.getElementById('profileBtn');
+var changePasswordBtn = document.getElementById('changePasswordBtn');
+var logoutBtn = document.getElementById('logoutBtn');
 
+// Add onclick event listeners to each button
+upcomingEventsBtn.onclick = function() {
+    showTable('upcomingEvents');
+};
 
-// other
+enrolledEventsBtn.onclick = function() {
+    showTable('enrolledEvents');
+};
 
-// const form = document.querySelector("form");
-// eField = form.querySelector(".email"),
-//     eInput = eField.querySelector("input"),
-//     pField = form.querySelector(".password"),
-//     pInput = pField.querySelector("input");
+completedEventsBtn.onclick = function() {
+    showTable('completedEvents');
+};
 
-// form.onsubmit = (e) => {
-//     e.preventDefault(); //preventing from form submitting
-//     //if email and password is blank then add shake class in it else call specified function
-//     (eInput.value == "") ? eField.classList.add("shake", "error") : checkEmail();
-//     (pInput.value == "") ? pField.classList.add("shake", "error") : checkPass();
+courseAssessmentBtn.onclick = function() {
+    showTable('courseAssessment');
+};
 
-//     setTimeout(() => { //remove shake class after 500ms
-//         eField.classList.remove("shake");
-//         pField.classList.remove("shake");
-//     }, 500);
+profileBtn.onclick = function() {
+    showTable('profile');
+};
 
-//     eInput.onkeyup = () => { checkEmail(); } //calling checkEmail function on email input keyup
-//     pInput.onkeyup = () => { checkPass(); } //calling checkPassword function on pass input keyup
+// Example of a button without an action, like Change Password and Logout
+changePasswordBtn.onclick = function() {
+    // Add code for Change Password action
+    console.log('Change Password clicked');
+};
 
-//     function checkEmail() { //checkEmail function
-//         let pattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/; //pattern for validate email
-//         if (!eInput.value.match(pattern)) { //if pattern not matched then add error and remove valid class
-//             eField.classList.add("error");
-//             eField.classList.remove("valid");
-//             let errorTxt = eField.querySelector(".error-txt");
-//             //if email value is not empty then show please enter valid email else show Email can't be blank
-//             (eInput.value != "") ? errorTxt.innerText = "Enter a valid email address" : errorTxt.innerText = "Email can't be blank";
-//         } else { //if pattern matched then remove error and add valid class
-//             eField.classList.remove("error");
-//             eField.classList.add("valid");
-//         }
-//     }
-
-//     function checkPass() { //checkPass function
-//         if (pInput.value == "") { //if pass is empty then add error and remove valid class
-//             pField.classList.add("error");
-//             pField.classList.remove("valid");
-//         } else { //if pass is empty then remove error and add valid class
-//             pField.classList.remove("error");
-//             pField.classList.add("valid");
-//         }
-//     }
-
-//     //if eField and pField doesn't contains error class that mean user filled details properly
-//     if (!eField.classList.contains("error") && !pField.classList.contains("error")) {
-//         window.location.href = form.getAttribute("action"); //redirecting user to the specified url which is inside action attribute of form tag
-//     }
-// }
+logoutBtn.onclick = function() {
+    // Add code for Logout action
+    console.log('Logout clicked');
+};
 
 
 
+function showTable(tableId) {
+    // Get all tables
+    var tables = document.querySelectorAll('.table');
 
+    // Remove 'table-active' class from all tables
+    tables.forEach(function(table) {
+        table.classList.remove('table-active');
+    });
+
+    // Add 'table-active' class to the selected table
+    var selectedTable = document.getElementById(tableId);
+    if (selectedTable) {
+        selectedTable.classList.add('table-active');
+    }
+}
