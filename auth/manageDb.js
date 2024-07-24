@@ -1,13 +1,16 @@
-import { 
-    getDatabase, ref, set, get, onValue, query, orderByChild, child, update, remove 
+import {
+    getDatabase, ref, set, get, onValue, query, orderByChild, child, update, remove
 } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-database.js";
 import { app, getAuth, onAuthStateChanged } from "./firebase-init.js";
+
+
 
 // Initialize Firebase Authentication and Database
 const auth = getAuth();
 const database = getDatabase(app);
 const usersRef = ref(database, 'users');
 const coursesRef = ref(database, 'Forthcoming Events');
+let upcomingEvents = null, enrolledEvents = null, completedEvents = null;
 
 // Functions to handle events for the authenticated user
 async function setEvent(type) {
@@ -75,6 +78,19 @@ onAuthStateChanged(auth, async (user) => {
         console.log("Upcoming events:", upcomingEvents);
         console.log("Enrolled events:", enrolledEvents);
         console.log("Completed events:", completedEvents);
+
+        if (upcomingEvents) {
+
+            setTableData("completedEvents", completedEvents);
+        }
+        if (enrolledEvents) {
+
+            setTableData("enrolledEvents", enrolledEvents);
+        }
+        if (upcomingEvents) {
+
+            setTableData("upcomingEvents", upcomingEvents);
+        }
     } else {
         console.log("User signed out");
     }
@@ -95,7 +111,8 @@ function getForthcomingEvent() {
     const serialRef = query(coursesRef, orderByChild('SrNo'));
     onValue(serialRef, (snapshot) => {
         const tableData = snapshot.val();
-        setTableData("fouthcommingEvents",tableData);
+        setTableData("fouthcommingEvents", tableData);
+
     }, {
         onlyOnce: true
     });
@@ -114,13 +131,16 @@ async function deleteUser(uid) {
 }
 
 // Function to set table data
-function setTableData(tableId,tableData) {
-    const tbody = document.querySelector(`#${tableId} tbody`);
-    tbody.innerHTML = ''; // Clear existing data
-    const dataArray = Object.values(tableData);
-    dataArray.forEach((data) => {
-        let newRow = tbody.insertRow();
-        newRow.innerHTML = `
+async function setTableData(tableId, tableData) {
+
+    try {
+        const tbody = document.querySelector(`#${tableId} tbody`);
+        console.log(tbody);
+        tbody.innerHTML = ''; // Clear existing data
+        const dataArray = Object.values(tableData);
+        dataArray.forEach((data) => {
+            let newRow = tbody.insertRow();
+            newRow.innerHTML = `
             <td>${data.SrNo}</td>
             <td><a href="${data.ProgramTopicScheduleURL}">${data.ProgramTopicScheduleURL}</a></td>
             <td>${data.CourseCode}</td>
@@ -129,7 +149,14 @@ function setTableData(tableId,tableData) {
             <td>${data.FeesPerParticipant}</td>
             <td>${data.SeatsAvailable}</td>
         `;
-    });
+        });
+
+        console.log("successfully set table data for ", tableId)
+
+    } catch (error) {
+        console.log("error in setting ", tableId, "data ", error);
+    }
+
 }
 
 // Event listeners for search and filter
@@ -156,5 +183,5 @@ function filterTable(inputId, column) {
     }
 }
 
-export { createForthcomingEvent, getForthcomingEvent, deleteUser, setEvent, getEvent };
 
+export { createForthcomingEvent, getForthcomingEvent, deleteUser, setEvent, getEvent };

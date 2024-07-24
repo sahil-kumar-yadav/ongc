@@ -41,19 +41,18 @@ logoutBtn.onclick = function() {
 };
 
 
-
 function showTable(tableId) {
     // Get all tables
     var tables = document.querySelectorAll('.table');
 
-    // Remove 'table-active' class from all tables
+    // Hide all tables
     tables.forEach(function(table) {
-        table.classList.remove('table-active');
+        table.style.display = 'none';
     });
 
-    // Add 'table-active' class to the selected table
+    // Show the selected table
     var selectedTable = document.getElementById(tableId);
     if (selectedTable) {
-        selectedTable.classList.add('table-active');
+        selectedTable.style.display = 'table';
     }
 }
